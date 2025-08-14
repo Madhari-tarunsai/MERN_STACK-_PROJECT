@@ -1,15 +1,33 @@
-import React from 'react'
-import Upadate from './Donation/Upadate/Upadate'
-import Delete from './Donation/Delete/Delete'
+// src/App.jsx
+import React from 'react';
+import { Routes, Route, Navigate } from 'react-router-dom';
+import Public from './Pages/Public';
+import Login from './Pages/Login';
+import AdminRegister from './Pages/AdminRegister';
+import AdminDashboard from './Pages/AdminDashboard';
 
-const App = () => {
+function App() {
+  // Temporary auth check (later AuthContext or token verify)
+  const isAdminLoggedIn = !!localStorage.getItem('adminToken');
+
   return (
-    <div>
-      <h1>Donation Management</h1>
-      <Upadate/>
-      <Delete/>
-    </div>
-  )
+    <Routes>
+      {/* Public page */}
+      <Route path="/" element={<Public />} />
+
+      {/* Admin registration (first time) */}
+      <Route path="/register" element={<AdminRegister />} />
+
+      {/* Admin login */}
+      <Route path="/login" element={<Login />} />
+
+      {/* Admin dashboard with auth check */}
+      <Route
+        path="/admin"
+        element={isAdminLoggedIn ? <AdminDashboard /> : <Navigate to="/login" />}
+      />
+    </Routes>
+  );
 }
 
-export default App
+export default App;

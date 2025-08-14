@@ -1,31 +1,20 @@
 const express = require("express");
 const router = express.Router();
-const Event =require('../Models/Event.js')
+const {
+  createEvent,
+  getEvents,
+  getEventById,
+  updateEvent,
+  deleteEvent
+} = require("../Controllers/eventController");
 
-// Create Event (Admin)
-router.post('/post',async(req,res)=>{
-    try{
-       const { title, description, date, location } = req.body;
-       const newEvent=new Event({title, description, date, location})
-       const saveEvent=await newEvent.save()
-        res.status(201).json(saveEvent);
+// Public Routes
+router.get("/", getEvents);
+router.get("/:id", getEventById);
 
-    }
-    catch(err){
-        console.log(err)
-        res.status(500).json({err:err.message})
-    }
+// Admin Routes
+router.post("/post", createEvent);
+router.put("/:id", updateEvent);
+router.delete("/:id", deleteEvent);
 
-});
-// Create Event display (public)
-router.get("/get",async(req,res)=>{
-    try{
-        const events = await Event.find().sort({ date: 1 });
-        res.json(events);
-
-    }catch(err){
-        console.log(err)
-    }
-
-})
 module.exports = router;
