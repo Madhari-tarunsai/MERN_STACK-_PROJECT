@@ -1,0 +1,94 @@
+/* Container */
+.login-container {
+  width: 100%;
+  max-width: 400px;
+  padding: 20px;
+}
+
+/* Form Card */
+.login-form {
+  background-color: white;
+  padding: 40px 30px;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+.login-form h1 {
+  color: #333;
+  margin-bottom: 25px;
+  font-size: 28px;
+}
+
+/* Inputs */
+.login-form input {
+  width: 100%;
+  padding: 12px 15px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 16px;
+}
+
+/* Buttons */
+.login-form button {
+  width: 100%;
+  padding: 12px;
+  background: #667eea;
+  border: none;
+  color: white;
+  font-size: 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 15px;
+  transition: background 0.3s;
+}
+
+.login-form button:hover {
+  background: #5a67d8;
+}
+
+/* Error message */
+.error {
+  color: red;
+  margin-top: 10px;
+}
+
+/* Redirect Link */
+.redirect {
+  margin-top: 15px;
+  font-size: 14px;
+  color: #555;
+}
+
+.redirect a {
+  color: #667eea;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.redirect a:hover {
+  text-decoration: underline;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+  .login-form {
+    padding: 35px 25px;
+  }
+}
+
+@media (max-width: 480px) {
+  .login-form {
+    padding: 30px 20px;
+  }
+
+  .login-form h1 {
+    font-size: 24px;
+  }
+
+  .login-form input, .login-form button {
+    font-size: 15px;
+    padding: 10px;
+  }
+}

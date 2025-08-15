@@ -21,7 +21,8 @@ connectDb()
 
 // Routes
 app.use("/api/events", eventRoutes);
-app.use("/api/auth", authRoutes); 
+app.use("/api/admin", authRoutes); 
+
 
 
 

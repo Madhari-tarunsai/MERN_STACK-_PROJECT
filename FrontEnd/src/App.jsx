@@ -1,33 +1,30 @@
-// src/App.jsx
 import React from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
-import Public from './Pages/Public';
-import Login from './Pages/Login';
-import AdminRegister from './Pages/AdminRegister';
-import AdminDashboard from './Pages/AdminDashboard';
+import Register from './Pages/Register/Register';
+import Login from './Pages/Login/Login';
+import Public from './DashBoard/Public/Public';
+import AdminDashboard from './DashBoard/Admin/AdminDashboard';
+import Upload from './DashBoard/Admin/Upload/Upload';
 
-function App() {
-  // Temporary auth check (later AuthContext or token verify)
+
+
+const App = () => {
   const isAdminLoggedIn = !!localStorage.getItem('adminToken');
 
   return (
     <Routes>
-      {/* Public page */}
-      <Route path="/" element={<Public />} />
-
-      {/* Admin registration (first time) */}
-      <Route path="/register" element={<AdminRegister />} />
-
-      {/* Admin login */}
+      <Route path="/public" element={<Public />} />
+      <Route path="/register" element={<Register />} />
       <Route path="/login" element={<Login />} />
+        <Route
+    path="/admin"
+    element={localStorage.getItem("adminToken") ? <AdminDashboard/> : <Navigate to="/login" />}
 
-      {/* Admin dashboard with auth check */}
-      <Route
-        path="/admin"
-        element={isAdminLoggedIn ? <AdminDashboard /> : <Navigate to="/login" />}
-      />
+  />
+  <Route element={<Upload/>} path='upload'/>
     </Routes>
+
   );
-}
+};
 
 export default App;

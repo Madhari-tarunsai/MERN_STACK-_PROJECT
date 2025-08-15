@@ -1,10 +1,12 @@
 import React from 'react'
+import NavBar from './NavBar/NavBar'
 
 const Public = () => {
   return (
     <div>
-      <h1>Upcoming Events</h1>
-      {/* Events list will come here */}
+      
+        <NavBar/>
+      
     </div>
   )
 }

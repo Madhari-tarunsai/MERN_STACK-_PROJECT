@@ -1,0 +1,99 @@
+/* Container */
+.register-container {
+  width: 100%;
+  max-width: 400px;
+  padding: 20px;
+}
+
+/* Form Card */
+.register-form {
+  background-color: white;
+  padding: 40px 30px;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+.register-form h1 {
+  color: #333;
+  margin-bottom: 25px;
+  font-size: 28px;
+}
+
+/* Inputs */
+.register-form input {
+  width: 100%;
+  padding: 12px 15px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 16px;
+}
+
+/* Buttons */
+.register-form button {
+  width: 100%;
+  padding: 12px;
+  background: #ff7e5f;
+  border: none;
+  color: white;
+  font-size: 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 15px;
+  transition: background 0.3s;
+}
+
+.register-form button:hover {
+  background: #eb6750;
+}
+
+/* Messages */
+.success {
+  color: green;
+  margin-top: 10px;
+}
+
+.error {
+  color: red;
+  margin-top: 10px;
+}
+
+/* Redirect Link */
+.redirect {
+  margin-top: 15px;
+  font-size: 14px;
+  color: #555;
+}
+
+.redirect a {
+  color: #ff7e5f;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.redirect a:hover {
+  text-decoration: underline;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+  .register-form {
+    padding: 35px 25px;
+  }
+}
+
+@media (max-width: 480px) {
+  .register-form {
+    padding: 30px 20px;
+  }
+
+  .register-form h1 {
+    font-size: 24px;
+  }
+
+  .register-form input, .register-form button {
+    font-size: 15px;
+    padding: 10px;
+  }
+}

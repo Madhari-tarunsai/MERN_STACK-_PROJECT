@@ -1,0 +1,106 @@
+/* Full screen background */
+.home-container {
+  background: url('../../../assets/images/home.jpg') no-repeat center center/cover;
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  transition: all 0.5s ease-in-out;
+}
+
+/* Dark overlay for readability */
+.overlay {
+  background-color: rgba(0, 0, 0, 0.5);
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Centered content */
+.content {
+  text-align: center;
+  color: #fff;
+  max-width: 700px;
+  padding: 20px;
+  animation: fadeIn 1.5s ease-in-out;
+}
+
+/* Title animation */
+.title {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  animation: slideDown 1s ease forwards;
+}
+
+/* Description animation */
+.description {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+  animation: slideUp 1s ease forwards;
+  animation-delay: 0.5s;
+}
+
+/* Button hover effect */
+.btn {
+  padding: 12px 30px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 5px;
+  background-color: #ff9800;
+  color: #fff;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #e68900;
+  transform: scale(1.05);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-50px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(50px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive media queries */
+@media (max-width: 768px) {
+  .title {
+    font-size: 2.5rem;
+  }
+  .description {
+    font-size: 1rem;
+  }
+  .btn {
+    padding: 10px 25px;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .title {
+    font-size: 2rem;
+  }
+  .description {
+    font-size: 0.9rem;
+  }
+  .btn {
+    padding: 8px 20px;
+    font-size: 0.8rem;
+  }
+}

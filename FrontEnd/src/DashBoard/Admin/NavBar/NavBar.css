@@ -1,0 +1,121 @@
+/* Navbar container */
+.navbar {
+  background-color: #1f2937; /* dark gray */
+  color: #fff;
+  padding: 0.5rem 1rem;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  font-family: 'Poppins', sans-serif;
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1100px;
+  margin: auto;
+}
+
+/* Logo */
+.logo {
+  font-size: 1.8rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+  transition: color 0.3s;
+}
+
+.logo:hover {
+  color: #facc15;
+}
+
+/* Nav Links */
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.nav-links a, .nav-links button {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1rem;
+  padding: 0.3rem 0.6rem;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+
+.nav-links a:hover, .nav-links button:hover {
+  background-color: #facc15;
+  color: #1f2937;
+  transform: scale(1.1);
+}
+
+/* Logout button */
+.logout-btn {
+  background-color: #ef4444;
+  border: none;
+  cursor: pointer;
+}
+
+.logout-btn:hover {
+  background-color: #f87171;
+  transform: scale(1.1);
+}
+
+/* Hamburger */
+.menu-toggle {
+  display: none;
+}
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+}
+
+.hamburger span {
+  width: 25px;
+  height: 3px;
+  background-color: #fff;
+  display: block;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hamburger {
+    display: flex;
+  }
+
+  .nav-links {
+    position: absolute;
+    top: 60px;
+    right: -250px;
+    flex-direction: column;
+    background-color: #1f2937;
+    width: 200px;
+    padding: 1rem;
+    gap: 1rem;
+    border-radius: 5px;
+    transition: right 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+  }
+
+  /* Toggle menu using checkbox */
+  .menu-toggle:checked + .hamburger + .nav-links {
+    right: 10px;
+  }
+
+  .nav-links a, .nav-links button {
+    text-align: center;
+    width: 100%;
+  }
+}
+::-webkit-scrollbar{
+    display: none;
+}

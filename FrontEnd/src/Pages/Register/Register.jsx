@@ -1,10 +1,9 @@
-// src/Pages/AdminRegister.jsx
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import './AdminRegister.css';
+import './Register.css';
 
-const AdminRegister = () => {
+const Register = () => {
   const navigate = useNavigate();
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
@@ -15,18 +14,17 @@ const AdminRegister = () => {
   const handleRegister = async (e) => {
     e.preventDefault();
     try {
+      
       const res = await axios.post('http://localhost:5000/api/admin/register', {
-        name,
+        username: name, 
         email,
         password,
       });
-
+      const localdata=localStorage.setItem("name",JSON.stringify(name))
+      
       setSuccess('Admin registered successfully!');
       setError('');
-      // Redirect to login after 2 sec
-      setTimeout(() => {
-        navigate('/login');
-      }, 2000);
+      setTimeout(() => navigate('/login'), 2000);
     } catch (err) {
       setError(err.response?.data?.message || 'Registration failed');
       setSuccess('');
@@ -61,9 +59,14 @@ const AdminRegister = () => {
         <button type="submit">Register</button>
         {success && <p className="success">{success}</p>}
         {error && <p className="error">{error}</p>}
+
+        {/* Link to login */}
+        <p className="redirect">
+          Already have an account? <a href="/login">Login</a>
+        </p>
       </form>
     </div>
   );
 };
 
-export default AdminRegister;
+export default Register;
